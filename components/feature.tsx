@@ -1,28 +1,28 @@
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon } from '@heroicons/react/24/outline'
+import { ArrowTrendingUpIcon, ClockIcon, FingerPrintIcon, WrenchIcon } from '@heroicons/react/24/outline'
 
 const features = [
   {
-    name: 'Push to deploy',
+    name: 'Advance Analytics',
     description:
-      'Morbi viverra dui mi arcu sed. Tellus semper adipiscing suspendisse semper morbi. Odio urna massa nunc massa.',
-    icon: CloudArrowUpIcon,
+      'With our advanced analytics feature, gain deep insights into exam performance like never before. Leverage sophisticated algorithms powered by machine learning to analyze and interpret exam results, identifying strengths, weaknesses, and patterns.',
+    icon: ArrowTrendingUpIcon,
   },
   {
-    name: 'SSL certificates',
+    name: 'Quick Evaluation',
     description:
-      'Sit quis amet rutrum tellus ullamcorper ultricies libero dolor eget. Sem sodales gravida quam turpis enim lacus amet.',
-    icon: LockClosedIcon,
+      'With Quick Evaluation, teachers can effortlessly assess exams, provide prompt feedback, and streamline the assessment process. Students benefit from immediate feedback, enabling them to track their progress and identify areas for improvement swiftly. ',
+    icon: ClockIcon,
   },
   {
-    name: 'Simple queues',
+    name: 'Configurable exams',
     description:
-      'Quisque est vel vulputate cursus. Risus proin diam nunc commodo. Lobortis auctor congue commodo diam neque.',
-    icon: ArrowPathIcon,
+      'The Configurable Exam feature empowers administrators and educators with unprecedented flexibility in designing customized exams. Tailor the assessment experience to meet specific requirements, allowing for the creation of unique question formats, time limits, and grading schemes',
+    icon: WrenchIcon,
   },
   {
     name: 'Advanced security',
     description:
-      'Arcu egestas dolor vel iaculis in ipsum mauris. Tincidunt mattis aliquet hac quis. Id hac maecenas ac donec pharetra eget.',
+      'Ensuring the highest level of exam integrity, our robust Security feature employs state-of-the-art measures to safeguard against cheating and ensure a fair testing environment. Powered by machine learning algorithms, it detects and flags suspicious activities such as unauthorized access, content leakage, and abnormal behavior patterns.',
     icon: FingerPrintIcon,
   },
 ]
@@ -32,13 +32,12 @@ export default function Features() {
     <div className="bg-white py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base font-semibold leading-7 text-indigo-600">Deploy faster</h2>
+          <h2 className="text-base font-semibold leading-7 text-indigo-600">Evaluate faster</h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Everything you need to deploy your app
+            Everything you need for an Exam
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum
-            pulvinar et feugiat blandit at. In mi viverra elit nunc.
+          Intelligent Exam Analytics: Unlocking Insights for Enhanced Performance
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
