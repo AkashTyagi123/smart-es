@@ -1,10 +1,12 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
 
 const includedFeatures = [
-  'Private forum access',
-  'Member resources',
-  'Entry to annual conference',
-  'Official member t-shirt',
+  'On demand exam creation',
+  'AI Enabled technology',
+  'Advance analytics',
+  'Discussion forums',
+  'Configurable Exams',
+  'Better insights'
 ]
 
 export default function Pricing() {
@@ -14,16 +16,14 @@ export default function Pricing() {
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Simple no-tricks pricing</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Distinctio et nulla eum soluta et neque labore quibusdam. Saepe et quasi iusto modi velit ut non voluptas
-            in. Explicabo id ut laborum.
+          Affordable Excellence: Unleash Your Potential with our Pro Plan
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl rounded-3xl ring-1 ring-gray-200 sm:mt-20 lg:mx-0 lg:flex lg:max-w-none">
           <div className="p-8 sm:p-10 lg:flex-auto">
-            <h3 className="text-2xl font-bold tracking-tight text-gray-900">Lifetime membership</h3>
+            <h3 className="text-2xl font-bold tracking-tight text-gray-900">Membership for everyone</h3>
             <p className="mt-6 text-base leading-7 text-gray-600">
-              Lorem ipsum dolor sit amet consect etur adipisicing elit. Itaque amet indis perferendis blanditiis
-              repellendus etur quidem assumenda.
+            Experience the Ultimate Advantage: Elevate Your Journey with our Exclusive Premium Plan for Unparalleled Success
             </p>
             <div className="mt-10 flex items-center gap-x-4">
               <h4 className="flex-none text-sm font-semibold leading-6 text-indigo-600">What’s included</h4>
