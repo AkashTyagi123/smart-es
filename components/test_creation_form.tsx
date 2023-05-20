@@ -108,6 +108,29 @@ export default function TestCreationForm() {
               </div>
             </div>
           </div>
+
+
+
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+           <div className="col-span-full">
+              <label htmlFor="street-address" className="block text-sm font-medium leading-6 text-gray-900">
+                Duration
+              </label>
+              <p className="mt-1 text-sm leading-6 text-gray-600">Use numbers to specify the duration in hours. This indicates the validity of test after it has been started.
+                Candidates would not be able to attempt the test after this duration.
+              </p>
+              <div className="col-span-2 col-start-1 flex">
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  autoComplete="address-level2"
+                  className="block w-full mt-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+
+              </div>
+            </div>
+           </div>
         </div>
 
         <div className="border-b border-gray-900/10 pb-12">
@@ -264,6 +287,23 @@ export default function TestCreationForm() {
                       Hints for hard questions
                     </label>
                     <p className="text-gray-500">Allow system to provide hint to candidate for hard questions</p>
+                  </div>
+                </div>
+
+                <div className="relative flex gap-x-3">
+                  <div className="flex h-6 items-center">
+                    <input
+                      id="offers"
+                      name="offers"
+                      type="checkbox"
+                      className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                    />
+                  </div>
+                  <div className="text-sm leading-6">
+                    <label htmlFor="offers" className="font-medium text-gray-900">
+                      Automatically start test
+                    </label>
+                    <p className="text-gray-500">Start the test validity timer as soon as the test is created</p>
                   </div>
                 </div>
               </div>
