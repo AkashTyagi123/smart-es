@@ -3,14 +3,14 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon, AcademicCapIcon } from '@heroicons/react/24/outline'
 import TestCreationForm from './test_creation_form'
 
-export default function AddPost() {
-  const [open, setOpen] = useState(true)
+export default function AddPost({open, setOpen}) {
+  
 
-  const cancelButtonRef = useRef(null)
+  
 
   return (
     <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+      <Dialog as="div" className="relative z-10"  onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -63,7 +63,7 @@ export default function AddPost() {
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                     onClick={() => setOpen(false)}
-                    ref={cancelButtonRef}
+                    
                   >
                     Cancel
                   </button>

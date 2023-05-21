@@ -70,7 +70,7 @@ function classNames(...classes) {
 export default function Calendar() {
   let today = startOfToday()
   let [selectedDay, setSelectedDay] = useState(today)
-  let [showEventModal, setShowEventModal] = useState(false);
+  const [open, setOpen] = useState(false)
   let [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
   let firstDayCurrentMonth = parse(currentMonth, 'MMM-yyyy', new Date())
 
@@ -185,11 +185,11 @@ export default function Calendar() {
             <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0"
-                    onClick={e=>setShowEventModal(true)}
+                    onClick={()=>setOpen(true)}
                   >
                     Add Event
             </button>
-            {showEventModal? <AddPost/> : null}
+            <AddPost open={open} setOpen={setOpen}/>
 
 
           </div>
