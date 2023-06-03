@@ -1,31 +1,45 @@
-import { Dialog } from '@headlessui/react'
-import { useState } from 'react'
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
-import Image from 'next/image'
+import { Dialog } from "@headlessui/react";
+import { useEffect, useState } from "react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Link from "next/link";
+import Image from "next/image";
 const navigation = [
-    { name: 'Products', href: '#' },
-    { name: 'About Us', href: '#' },
-    { name: 'Terms', href: '#' }
-   
-  ]
-export default function Header(){
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-    return (
-        <>
-        <header className="inset-x-0 top-0 z-50">
-        <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+  { name: "Products", href: "#" },
+  { name: "About Us", href: "#" },
+  { name: "Terms", href: "#" },
+];
+export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [bgcolor, setBgColor] = useState("");
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 80) {
+      setBgColor("bg-gray-100");
+    } else {
+      setBgColor("");
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavbarColor);
+  });
+  return (
+    <>
+      <header className={`inset-x-0 top-0 z-50 fixed ${bgcolor}`}>
+        <nav
+          className="flex items-center justify-between p-6 lg:px-8"
+          aria-label="Global"
+        >
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <Image
-              src={'https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600'}
-              alt={'Company Logo here'}
-              className="h-8 w-auto"
-              width={100}
-              height={100}
+                src={
+                  "https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                }
+                alt={"Company Logo here"}
+                className="h-8 w-auto"
+                width={100}
+                height={100}
               />
-              
             </Link>
           </div>
           <div className="flex lg:hidden">
@@ -40,18 +54,30 @@ export default function Header(){
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
                 {item.name}
               </Link>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link href="/signin" className="text-sm font-semibold leading-6 text-gray-900">
+            <Link
+              href="/signin"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
         </nav>
-        <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+        <Dialog
+          as="div"
+          className="lg:hidden"
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+        >
           <div className="fixed inset-0 z-50" />
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
@@ -100,6 +126,6 @@ export default function Header(){
           </Dialog.Panel>
         </Dialog>
       </header>
-        </>
-    );
+    </>
+  );
 }
