@@ -6,11 +6,8 @@ import PageHeader from "@/components/page_header";
 export default function Dashboard(){
     return (
         <>
-      
-        
-        <Header/>
-      
-        <Calendar/>
+        <Header />
+       <Calendar/>
        <Footer/>
         </>
     )

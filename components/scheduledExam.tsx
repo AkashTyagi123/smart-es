@@ -88,7 +88,7 @@ const posts  = [
         },
   ]
   
-  export default function SchedulePost() {
+  export default function ScheduleExam() {
     return (
       <ul role="list" className="divide-y divide-gray-100 overflow-scroll h-screen no-scrollbar">
         {posts.map((post) => (

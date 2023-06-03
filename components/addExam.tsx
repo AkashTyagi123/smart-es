@@ -3,7 +3,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon, AcademicCapIcon } from '@heroicons/react/24/outline'
 import TestCreationForm from './test_creation_form'
 
-export default function AddPost({open, setOpen}) {
+export default function AddExam({open, setOpen}) {
   
 
   
