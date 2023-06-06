@@ -143,7 +143,7 @@ export default function Calendar() {
               </time>
             </h2>
             <ol className="mt-4 space-y-1 text-sm leading-6 text-gray-500">
-              <ScheduleExam />
+              <ScheduleExam selectedDate={format(selectedDay, "yyyy-MM-dd")} />
             </ol>
           </section>
         </div>
