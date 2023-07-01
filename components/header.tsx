@@ -7,6 +7,8 @@ const navigation = [
   { name: "Products", href: "#" },
   { name: "About Us", href: "#" },
   { name: "Terms", href: "#" },
+  { name: "Login", href: "/signin" },
+  { name: "Sign up", href: "/signup" },
 ];
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -63,14 +65,9 @@ export default function Header() {
               </Link>
             ))}
           </div>
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link
-              href="/signin"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
+          
+
+    
         </nav>
         <Dialog
           as="div"
@@ -113,14 +110,7 @@ export default function Header() {
                     </Link>
                   ))}
                 </div>
-                <div className="py-6">
-                  <Link
-                    href="/signin"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    Log in
-                  </Link>
-                </div>
+              
               </div>
             </div>
           </Dialog.Panel>

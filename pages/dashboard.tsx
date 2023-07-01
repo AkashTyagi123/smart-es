@@ -1,8 +1,10 @@
+import AuthGuard from "@/components/authGuard";
 import Calendar from "@/components/calendar";
-export default function Dashboard() {
+const  DashboardPage = () => {
   return (
     <>
       <Calendar />
     </>
   );
 }
+export default AuthGuard(DashboardPage);
