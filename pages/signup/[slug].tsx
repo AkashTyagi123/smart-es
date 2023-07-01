@@ -92,6 +92,8 @@ export default function SignUp(data:any) {
   const [signUpResponseText, setSignUpResponseText] = useState('');
   const [showSignUpResponse , setShowSignUpResponse] = useState(false);
   const [showLoader, setShowLoader] = useState(false)
+  const [selectedRole, setSelectedRole] = useState("student");
+
   const errorMessages = {
     email:{
       required : "A valid email id is required",
@@ -109,8 +111,12 @@ export default function SignUp(data:any) {
       modified: "Please do not change the input in the organisation field"
     },
     studentClass:{
-      required: "Field organisation is required",
+      required: "Field student class is required",
       modified: "Please do not change the input in the class field"
+    },
+    roleInOrganisation:{
+      required: "Please select one of student or teacher",
+     
     }
   }
 
@@ -137,8 +143,12 @@ export default function SignUp(data:any) {
       errors.push(errorMessages.organisation.required) 
      
     }
-    if(studentClass.trim().length == 0){
+    if(selectedRole == "student" && studentClass.trim().length == 0){
       errors.push(errorMessages.studentClass.required) 
+     
+    }
+    if(selectedRole.trim().length == 0){
+      errors.push(errorMessages.roleInOrganisation.required) 
      
     }
     setSignUpErrors((prevErrors: string[]) => {
@@ -155,11 +165,19 @@ export default function SignUp(data:any) {
 
 
   const registerUser = async () => {
+    const roles = []
+    if(selectedRole == "student"){
+      roles.push("STUDENT");
+      roles.push("CLASS_" + studentClass);
+    }
+    else if(selectedRole == "teacher"){
+      roles.push("TEACHER");
+    }
     const payload = {
       username: email,
       password: password,
       organisation: organisation,
-        roles: ["STUDENT","CLASS_" + studentClass]
+        roles: roles
       
     }
 
@@ -200,7 +218,7 @@ export default function SignUp(data:any) {
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 mt-5">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form className="space-y-6 shadow-lg p-7" action="#" method="POST">
-            <h2 className="text-md text-lg font-bold">Create your new account now for {data.data.slug}</h2>
+            <h2 className="text-md text-lg font-bold">Create Your New Student Account Now For <span className="text-indigo-600 uppercase">{data.data.slug}</span></h2>
             {showLoader ? <Loader/> : null}
             {signUpErrors.length > 0 ? <div className="signupErrorContainer">
             <div className="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4" role="alert">
@@ -232,7 +250,52 @@ export default function SignUp(data:any) {
           
 
 
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                I am a *
+              </label>
+              <div className="mt-2 flex justify-evenly">
+                <label className="block text-sm font-medium leading-6 text-gray-900">
+                <input
+                  id="email"
+                  name="email"
+                  type="radio"
+                  
+                  required
+                  checked={selectedRole == "student"}
+                  onChange={e=>setSelectedRole(e.target.value)}
+                  value={"student"}
+                 
+                />
+                  <span className="ml-2">Student</span>
+                
 
+                </label>
+
+
+                <label className="block text-sm font-medium leading-6 text-gray-900">
+                <input
+                  id="email"
+                  name="email"
+                  type="radio"
+                  autoComplete="email"
+                  required
+                  checked={selectedRole == "teacher"}
+                  onChange={e=>setSelectedRole(e.target.value)}
+                  value={"teacher"}
+                  
+                />
+                  <span className="ml-2">Teacher</span> 
+                
+
+                </label>
+
+
+              </div>
+            </div>
 
 
             <div>
@@ -304,7 +367,7 @@ export default function SignUp(data:any) {
               </div>
             </div>
 
-            <div>
+         {selectedRole == "student" ?    <div>
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="class"
@@ -327,7 +390,7 @@ export default function SignUp(data:any) {
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
-            </div>
+            </div> :null}
 
 
 
